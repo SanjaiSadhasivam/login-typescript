@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import Login from "./components/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegisterPage from "./components/Register";
+import "react-toastify/dist/ReactToastify.css";
+import MainPage from "./components/mainPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex align-center justify-center mt-10">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/mainpage" element={<MainPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
